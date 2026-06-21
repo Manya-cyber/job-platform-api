@@ -38,5 +38,15 @@ WHERE source_id = $1
 
     console.log('Scraper finished.');
 }
-
 module.exports = { runScraper };
+
+// Run immediately if this file is executed directly (not imported)
+if (require.main === module) {
+    runScraper().then(() => {
+        console.log('Done, exiting.');
+        process.exit(0);
+    }).catch((err) => {
+        console.error('Scraper failed:', err);
+        process.exit(1);
+    });
+}
