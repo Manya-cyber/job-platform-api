@@ -14,11 +14,14 @@ const authRoutes = require('./routes/auth');
 const jobRoutes = require('./routes/jobs');
 const userProfileRoutes = require('./routes/users');
 const bookmarks = require('./routes/bookmarks');
+const scraperRoutes = require('./routes/scraper');
+
 
 app.use('/auth', authRoutes);
 app.use('/jobs', jobRoutes);
 app.use('/users',userProfileRoutes);
 app.use('/bookmarks',bookmarks);
+app.use('/scraper', scraperRoutes);
 
 // Health check
 app.get('/health', (req, res) => {
